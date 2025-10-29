@@ -6,11 +6,14 @@ NC='\033[0m'
 
 
 printf "\n"
-figlet -f mini "Itaka, Alahmedi 2025, Mohammed Mahmoud 2025"
+figlet  "Itaka"
 echo
-read -p -r -s "[itaka] IP address: " ip
-read -p -r "[itaka] Amount of packets: " pac
-read -p -r "[itaka] Port: " port
+read -r -s -p "[itaka] IP address: " ip
+printf "\n"
+read -r -p "[itaka] Amount of packets: " pac
+printf "\n"
+read -p -r -p "[itaka] Port: " port
+printf "\n"
 
 if [[ "$ip" == "" ]]; then
 	echo -e "${RED} [itaka] ERROR: IP not specified, cannot proceed ${NC}"  >&2
